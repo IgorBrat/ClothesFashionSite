@@ -3,6 +3,17 @@ import styled from "styled-components";
 export const HomeWrapper = styled.div`
   color: white;
   padding: 50px 100px;
+
+  h1 {
+    color: white;
+    text-align: end;
+  }
+  > h1 {
+    text-align: center;
+    font-size: 3.3rem;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 `;
 
 export const SectionWrapper = styled.div`
@@ -14,17 +25,14 @@ export const SectionWrapper = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0px;
 `;
 
 export const StyledText = styled.div`
   font-size: 25px;
-  padding: 0 50px;
-
-  h1 {
-    color: white;
-    text-align: end;
-  }
+  padding-right: 70px;
 
   Button {
     font-size: 28px;

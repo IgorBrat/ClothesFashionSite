@@ -1,6 +1,6 @@
 import React from "react";
 import {Input, Button} from 'antd';
-import Logo from "../../../components/images/favicon.png";
+import Logo from "../../../assets/favicon.png";
 import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled"
 
 const { Search } = Input;
