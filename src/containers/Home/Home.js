@@ -2,32 +2,35 @@ import React from 'react';
 import {SectionWrapper, CardWrapper, HomeWrapper, StyledText} from "./Home.styled";
 import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage from "../../assets/home-1.png";
-import {Button} from 'antd';
-import ImgModel from "../../assets/home-1.png"
+import {Button, Pagination} from 'antd';
+import ImgModel1 from "../../assets/jacket-reebok-1.png";
+import ImgModel2 from "../../assets/shoes-nike-1.png";
+import ImgModel3 from "../../assets/trousers-adidas-1.png";
+import ImgModel4 from "../../assets/jacket-reebok-2.png";
 
 const data = [
   {
     title: "Clothes 1",
-    image: ImgModel,
+    image: ImgModel1,
     brand: "Reebok",
     price: 715,
   },
   {
     title: "Clothes 2",
-    image: ImgModel,
+    image: ImgModel2,
     brand: "Nike",
     price: 540,
   },
   {
     title: "Clothes 3",
-    image: ImgModel,
+    image: ImgModel3,
     brand: "Adidas",
     price: 1610,
   },
   {
     title: "Clothes 4",
-    image: ImgModel,
-    brand: "Channel",
+    image: ImgModel4,
+    brand: "Reebok",
     price: 1610,
   },
 ];
@@ -43,6 +46,7 @@ const Home = () => {
         </StyledText>
         <img src={HomeImage} alt="home-img"/>
       </SectionWrapper>
+      {/* TODO: Make another section asymmetrical to previous */}
       <h1>Browse our catalog!</h1>
       <CardWrapper className="reveal">
         {data.map(({ title, image, brand, price }, idx) => (
@@ -56,6 +60,7 @@ const Home = () => {
             />
         ))}
       </CardWrapper>
+      <Pagination total={3} pageSize={1}/>
     </HomeWrapper>
   );
 };

@@ -4,6 +4,10 @@ export const HomeWrapper = styled.div`
   color: white;
   padding: 50px 100px;
 
+  .ant-pagination {
+    justify-content: center;
+  }
+
   h1 {
     color: white;
     text-align: end;
@@ -11,7 +15,6 @@ export const HomeWrapper = styled.div`
   > h1 {
     text-align: center;
     font-size: 3.3rem;
-    margin-top: 50px;
     margin-bottom: 0;
   }
 `;
@@ -19,6 +22,7 @@ export const HomeWrapper = styled.div`
 export const SectionWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
   img {
     width: 50%;
   }
