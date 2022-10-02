@@ -19,24 +19,8 @@ export const HomeWrapper = styled.div`
   }
 `;
 
-export const SectionWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  img {
-    width: 50%;
-  }
-`;
-
-export const CardWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0px;
-`;
-
 export const StyledText = styled.div`
   font-size: 25px;
-  padding-right: 70px;
 
   Button {
     font-size: 28px;
@@ -53,4 +37,38 @@ export const StyledText = styled.div`
     background-color: #301511;
     border-color: black;
   }
+`;
+
+export const SectionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding-bottom: 60px;
+  img {
+    width: 50%;
+  }
+
+  ${StyledText} {
+    padding-right: 70px;
+  }
+`;
+
+export const SectionWrapperReversed = styled(SectionWrapper)`
+  flex-direction: row-reverse;
+  text-align: right;
+  padding-top: 80px;
+
+  img {
+    width: 60%;
+  }
+
+  ${StyledText} {
+    padding-right: 0;
+    padding-left: 70px;
+  }
+`;
+
+export const CardWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0px;
 `;

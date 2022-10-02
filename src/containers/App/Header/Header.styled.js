@@ -30,6 +30,31 @@ export const ButtonWrapper = styled.div`
     margin: 5px;
     width: 100px;
   }
+
+  .ant-btn-primary {
+    background-color: grey;
+    border-color: black;
+  }
+  .ant-btn-primary:hover, ::selection {
+    background-color: #2b2c2f;
+    border-color: black;
+  }
+  .ant-btn-primary:focus {
+    background-color: #201f1f;
+    border-color: #383733;
+  }
+
+  .ant-btn-default {
+    border-color: black;
+  }
+  .ant-btn-default:hover, ::selection {
+    border-color: #383733;
+    color: black;
+  }
+  .ant-btn-default:focus {
+    background-color: #c3c3c3;
+    color: inherit;
+  }
 `;
 
 export const Essentials = styled.div`
