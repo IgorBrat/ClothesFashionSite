@@ -49,8 +49,6 @@ const Home = () => {
           </StyledText>
           <img src={HomeImage1} alt="home-img-1"/>
         </SectionWrapper>
-        {/* </Fade>
-        <Fade duration={3000}> */}
         <SectionWrapperReversed>
           <StyledText>
             <h1>Shop latest releases</h1>
@@ -60,8 +58,6 @@ const Home = () => {
           <img src={HomeImage2} alt="home-img-2"/>
         </SectionWrapperReversed>
         <h1>Browse our catalog!</h1>
-        {/* </Fade>
-        <Fade duration={3000}> */}
         <CardWrapper>
           {data.map(({ title, image, brand, price }, idx) => (
             <CardItem
