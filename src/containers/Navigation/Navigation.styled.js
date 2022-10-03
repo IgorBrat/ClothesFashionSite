@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
       text-decoration: none;
     }
 
-    a.active {
+    a.selected {
       color: white;
     }
   }

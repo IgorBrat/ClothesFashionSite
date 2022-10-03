@@ -16,17 +16,35 @@ const Navigation = () => {
       <Wrapper>
         <ul>
           <li>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/"
+              className={({ isActive }) =>
+                isActive ? "selected" : undefined
+              }
+            end>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/catalog">Catalog</NavLink>
+            <NavLink to="/catalog"
+              className={({ isActive }) =>
+                isActive ? "selected" : undefined
+              }
+            >
+              Catalog
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/cart"
+              className={({ isActive }) =>
+                isActive ? "selected" : undefined
+              }
+            >
+              Cart
+            </NavLink>
           </li>
         </ul>
         <Routes>
-          <Route exact path="/home" element={<Home/>}/>
+          <Route exact path="/" element={<Home/>}/>
           <Route exact path="/catalog" element={<Catalog/>}/>
           <Route exact path="/cart" element={<Cart/>}/>
         </Routes>
