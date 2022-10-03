@@ -9,18 +9,19 @@ export const HomeWrapper = styled.div`
   }
 
   h1 {
-    color: white;
-    text-align: end;
-  }
-  > h1 {
     text-align: center;
     font-size: 3.3rem;
+    color: white;
     margin-bottom: 0;
   }
 `;
 
 export const StyledText = styled.div`
   font-size: 25px;
+
+  h1 {
+    text-align: end;
+  }
 
   Button {
     font-size: 28px;
@@ -55,7 +56,7 @@ export const SectionWrapper = styled.div`
 export const SectionWrapperReversed = styled(SectionWrapper)`
   flex-direction: row-reverse;
   text-align: right;
-  padding-top: 80px;
+  margin-top: 60px;
 
   img {
     width: 60%;

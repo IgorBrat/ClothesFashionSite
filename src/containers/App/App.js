@@ -11,6 +11,7 @@ const App = () => {
       <Header />
       <Navigation />
       <Footer />
+      <script src="../../logic/reveal.js" type="text/javascript"></script>
     </div>
   );
 };
