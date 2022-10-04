@@ -4,10 +4,6 @@ export const HomeWrapper = styled.div`
   color: white;
   padding: 50px 100px;
 
-  .ant-pagination {
-    justify-content: center;
-  }
-
   h1 {
     text-align: center;
     font-size: 3.3rem;
@@ -21,22 +17,6 @@ export const StyledText = styled.div`
 
   h1 {
     text-align: end;
-  }
-
-  Button {
-    font-size: 28px;
-    height: 100%;
-    background-color: grey;
-    border-color: black;
-  }
-
-  Button:hover, ::selection {
-    background-color: #0d152e;
-    border-color: black;
-  }
-  Button:focus {
-    background-color: #301511;
-    border-color: black;
   }
 `;
 
@@ -72,4 +52,14 @@ export const CardWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 40px 0px;
+
+  + div {
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+export const CatalogWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
