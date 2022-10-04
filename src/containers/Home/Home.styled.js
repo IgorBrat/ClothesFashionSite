@@ -1,22 +1,10 @@
 import styled from "styled-components";
 
-export const HomeWrapper = styled.div`
-  color: white;
-  padding: 50px 100px;
-
-  h1 {
-    text-align: center;
-    font-size: 3.3rem;
-    color: white;
-    margin-bottom: 0;
-  }
-`;
-
 export const StyledText = styled.div`
   font-size: 25px;
 
   h1 {
-    text-align: end;
+    text-align: left;
   }
 `;
 
@@ -45,17 +33,10 @@ export const SectionWrapperReversed = styled(SectionWrapper)`
   ${StyledText} {
     padding-right: 0;
     padding-left: 70px;
-  }
-`;
 
-export const CardWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0px;
-
-  + div {
-    display: flex;
-    justify-content: center;
+    h1 {
+      text-align: right;
+    }
   }
 `;
 

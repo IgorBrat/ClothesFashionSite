@@ -1,5 +1,5 @@
 import React from 'react';
-import {SectionWrapper, CatalogWrapper, SectionWrapperReversed, CardWrapper, HomeWrapper, StyledText} from "./Home.styled";
+import {SectionWrapper, CatalogWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
 import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage1 from "../../assets/home-1.png";
 import HomeImage2 from "../../assets/home-2.png";
@@ -7,10 +7,14 @@ import { Fade } from "react-awesome-reveal";
 import {Button} from 'antd';
 import {data} from "../../resources/data";
 import {PrimaryButton} from "../../components/buttons/PrimaryButton.styled.js";
+import {PageContainer} from "../PageContainer.styled.js";
+import {CardWrapper} from "../Catalog/CardWrapper/CardWrapper";
+
+const previewData = data.slice(0, 4);
 
 const Home = () => {
   return (
-    <HomeWrapper>
+    <PageContainer>
       <Fade duration={3000}>
         <SectionWrapper>
           <StyledText>
@@ -31,7 +35,7 @@ const Home = () => {
         <h1>Browse our catalog!</h1>
         <CatalogWrapper>
           <CardWrapper>
-            {data.map(({ title, image, brand, price }, idx) => (
+            {previewData.map(({ title, image, brand, price }, idx) => (
               <CardItem
                 title={title}
                 image={image}
@@ -46,7 +50,7 @@ const Home = () => {
           </div>
         </CatalogWrapper>
       </Fade>
-    </HomeWrapper>
+    </PageContainer>
   );
 };
 

@@ -28,4 +28,52 @@ export const data = [
     brand: "Reebok",
     price: 2000,
   },
+  {
+    title: "Grey autumn jacket",
+    image: ImgModel1,
+    brand: "Reebok",
+    price: 715,
+  },
+  {
+    title: "Futuristic black&white crosses",
+    image: ImgModel2,
+    brand: "Nike",
+    price: 540,
+  },
+  {
+    title: "Classic sport dark-blue trousers",
+    image: ImgModel3,
+    brand: "Adidas",
+    price: 1610,
+  },
+  {
+    title: "Limited spring multi-color jacket",
+    image: ImgModel4,
+    brand: "Reebok",
+    price: 2000,
+  },
+  {
+    title: "Grey autumn jacket",
+    image: ImgModel1,
+    brand: "Reebok",
+    price: 715,
+  },
+  {
+    title: "Futuristic black&white crosses",
+    image: ImgModel2,
+    brand: "Nike",
+    price: 540,
+  },
+  {
+    title: "Classic sport dark-blue trousers",
+    image: ImgModel3,
+    brand: "Adidas",
+    price: 1610,
+  },
+  {
+    title: "Limited spring multi-color jacket",
+    image: ImgModel4,
+    brand: "Reebok",
+    price: 2000,
+  },
 ];
