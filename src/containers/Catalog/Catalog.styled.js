@@ -12,6 +12,6 @@ export const FilterWrapper = styled.div`
   align-items: center;
 
   .ant-select, .ant-input-number-group-wrapper {
-    margin: 0 20px;
+    margin: 0 10px;
   }
 `;

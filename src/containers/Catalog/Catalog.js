@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Select, InputNumber } from 'antd';
+import { Select, InputNumber, Input } from 'antd';
 import {FilterWrapper, Essentials} from "./Catalog.styled.js";
 import CardItem from "../../components/CardItem/CardItem.js";
 import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
@@ -8,14 +8,18 @@ import CardWrapper from "./CardWrapper/CardWrapper";
 import data from "../../resources/data";
 
 const { Option } = Select;
+const { Search } = Input;
 
 const Catalog = () => {
   const [count, setCount] = useState(4);
-  const [items, setItems] = useState(data.slice(0, count));
+  const [searchTitle, setSearchTitle] = useState("");
+  const [items, setItems] = useState(data.filter(
+    (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
+  ));
 
-  useEffect(() => {
-    setItems((items) => data.slice(0, count));
-  }, [count]);
+  // useEffect(() => {
+  //   setItems((items) => data.slice(0, count));
+  // }, [count]);
 
   const showMore = () => {
     if (count >= data.length) {
@@ -26,8 +30,13 @@ const Catalog = () => {
     }
   };
 
-  const renderData = () => {
-
+  const renderItems = () => {
+    setItems(data.filter(
+      (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
+    ));
+    return data.filter(
+      (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
+    );
   };
 
   return (
@@ -54,18 +63,28 @@ const Catalog = () => {
           </Select>
           <InputNumber id="filter_min" size="large" addonAfter="$" placeholder="Minimum price" />
           <InputNumber id="filter_max" size="large" addonAfter="$" placeholder="Maximum price" />
+          <PrimaryButton type="primary">Apply filters</PrimaryButton>
         </FilterWrapper>
-        <PrimaryButton type="primary">Apply</PrimaryButton>
+        <Search
+          id="search_title"
+          placeholder="Input title"
+          allowClear
+          size="large"
+          onSearch={(value, event) => setSearchTitle(value)}
+          style={{
+            width: 200,
+          }}
+        />
       </Essentials>
       <CardWrapper>
-        {items.map(({ title, image, brand, price }, idx) => (
-          <CardItem
-            title={title}
-            image={image}
-            brand={brand}
-            price={price}
-            key={idx}
-          />
+        {renderItems().map(({ title, image, brand, price }, idx) => (
+        <CardItem
+          title={title}
+          image={image}
+          brand={brand}
+          price={price}
+          key={idx}
+        />
         ))}
       </CardWrapper>
       <PrimaryButton type="primary" onClick={() => showMore()}>
