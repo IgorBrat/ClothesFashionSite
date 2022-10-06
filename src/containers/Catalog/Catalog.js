@@ -26,12 +26,17 @@ const Catalog = () => {
     }
   };
 
+  const renderData = () => {
+
+  };
+
   return (
     <PageContainer>
       <Essentials>
         <FilterWrapper>
           <span>Choose filters:</span>
           <Select
+            id="filter_brand"
             size="large"
             showSearch
             allowClear
@@ -47,8 +52,8 @@ const Catalog = () => {
             <Option value="FILA">FILA</Option>
             <Option value="Vans">Vans</Option>
           </Select>
-          <InputNumber size="large" addonAfter="$" placeholder="Minimum price" />
-          <InputNumber size="large" addonAfter="$" placeholder="Maximum price" />
+          <InputNumber id="filter_min" size="large" addonAfter="$" placeholder="Minimum price" />
+          <InputNumber id="filter_max" size="large" addonAfter="$" placeholder="Maximum price" />
         </FilterWrapper>
         <PrimaryButton type="primary">Apply</PrimaryButton>
       </Essentials>
