@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 export const StyledText = styled.div`
   font-size: 25px;
-
-  h1 {
-    text-align: left;
-  }
 `;
 
 export const SectionWrapper = styled.div`
@@ -18,6 +14,10 @@ export const SectionWrapper = styled.div`
 
   ${StyledText} {
     padding-right: 70px;
+
+    h1 {
+      text-align: left;
+    }
   }
 `;
 
@@ -43,4 +43,12 @@ export const SectionWrapperReversed = styled(SectionWrapper)`
 export const CatalogWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  a {
+    display: flex;
+    justify-content: center;
+  }
 `;
+
+export const ButtonWrapper = styled.div``;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PageContainer = styled.div`
+const PageContainer = styled.div`
   color: white;
   padding: 50px 100px;
 
@@ -11,3 +11,5 @@ export const PageContainer = styled.div`
     margin-bottom: 0;
   }
 `;
+
+export default PageContainer;

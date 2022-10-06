@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const CatalogWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
 export const Essentials = styled.div`
   display: flex;
   align-items: center;
@@ -14,8 +8,10 @@ export const Essentials = styled.div`
 
 export const FilterWrapper = styled.div`
   font-size: 25px;
+  display: flex;
+  align-items: center;
 
-  .ant-select {
+  .ant-select, .ant-input-number-group-wrapper {
     margin: 0 20px;
   }
 `;

@@ -1,14 +1,14 @@
 import React from 'react';
-import {SectionWrapper, CatalogWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
+import {SectionWrapper, CatalogWrapper, ButtonWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
 import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage1 from "../../assets/home-1.png";
 import HomeImage2 from "../../assets/home-2.png";
-import { Fade } from "react-awesome-reveal";
-import {Button} from 'antd';
-import {data} from "../../resources/data";
-import {PrimaryButton} from "../../components/buttons/PrimaryButton.styled.js";
-import {PageContainer} from "../PageContainer.styled.js";
-import {CardWrapper} from "../Catalog/CardWrapper/CardWrapper";
+import {Fade} from "react-awesome-reveal";
+import data from "../../resources/data";
+import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
+import PageContainer from "../PageContainer.styled.js";
+import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
+import {NavLink} from "react-router-dom";
 
 const previewData = data.slice(0, 4);
 
@@ -45,9 +45,13 @@ const Home = () => {
               />
             ))}
           </CardWrapper>
-          <div>
-            <PrimaryButton type="primary">Show more</PrimaryButton>
-          </div>
+          <ButtonWrapper>
+            <PrimaryButton type="primary">
+              <NavLink to="/catalog">
+                Browse catalog
+              </NavLink>
+            </PrimaryButton>
+          </ButtonWrapper>
         </CatalogWrapper>
       </Fade>
     </PageContainer>

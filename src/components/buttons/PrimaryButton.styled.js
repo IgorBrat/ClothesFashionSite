@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import {Button} from 'antd';
 
-export const PrimaryButton = styled(Button)`
+const PrimaryButton = styled(Button)`
   font-size: 28px;
   height: 100%;
   background-color: grey;
   border-color: black;
+  max-width: 300px;
 
   :hover, ::selection {
     background-color: #0d152e;
@@ -16,3 +17,5 @@ export const PrimaryButton = styled(Button)`
     border-color: black;
   }
 `;
+
+export default PrimaryButton;

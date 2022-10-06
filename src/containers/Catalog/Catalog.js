@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Select } from 'antd';
-import {CatalogWrapper, FilterWrapper, Essentials} from "./Catalog.styled.js";
+import { Select, InputNumber } from 'antd';
+import {FilterWrapper, Essentials} from "./Catalog.styled.js";
 import CardItem from "../../components/CardItem/CardItem.js";
-import {PrimaryButton} from "../../components/buttons/PrimaryButton.styled.js";
-import {PageContainer} from "../PageContainer.styled.js";
-import {CardWrapper} from "./CardWrapper/CardWrapper";
-import {data} from "../../resources/data";
+import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
+import PageContainer from "../PageContainer.styled.js";
+import CardWrapper from "./CardWrapper/CardWrapper";
+import data from "../../resources/data";
 
 const { Option } = Select;
 
@@ -18,7 +18,7 @@ const Catalog = () => {
   }, [count]);
 
   const showMore = () => {
-    if (count == data.length) {
+    if (count >= data.length) {
       alert("No more items in catalog!");
     }
     else {
@@ -42,43 +42,13 @@ const Catalog = () => {
             <Option value="Reebok">Reebok</Option>
             <Option value="Puma">Puma</Option>
             <Option value="Nike">Nike</Option>
-            <Option value="Tommy Heilfiger">Tommy Heilfiger</Option>
+            <Option value="Tommy Hilfiger">Tommy Hilfiger</Option>
             <Option value="Adidas">Adidas</Option>
             <Option value="FILA">FILA</Option>
             <Option value="Vans">Vans</Option>
           </Select>
-          <Select
-            size="large"
-            showSearch
-            allowClear
-            placeholder="Select a brand"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
-          >
-            <Option value="Reebok">Reebok</Option>
-            <Option value="Puma">Puma</Option>
-            <Option value="Nike">Nike</Option>
-            <Option value="Tommy Heilfiger">Tommy Heilfiger</Option>
-            <Option value="Adidas">Adidas</Option>
-            <Option value="FILA">FILA</Option>
-            <Option value="Vans">Vans</Option>
-          </Select>
-          <Select
-            size="large"
-            showSearch
-            allowClear
-            placeholder="Select a brand"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
-          >
-            <Option value="Reebok">Reebok</Option>
-            <Option value="Puma">Puma</Option>
-            <Option value="Nike">Nike</Option>
-            <Option value="Tommy Heilfiger">Tommy Heilfiger</Option>
-            <Option value="Adidas">Adidas</Option>
-            <Option value="FILA">FILA</Option>
-            <Option value="Vans">Vans</Option>
-          </Select>
+          <InputNumber size="large" addonAfter="$" placeholder="Minimum price" />
+          <InputNumber size="large" addonAfter="$" placeholder="Maximum price" />
         </FilterWrapper>
         <PrimaryButton type="primary">Apply</PrimaryButton>
       </Essentials>
