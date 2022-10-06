@@ -11,29 +11,9 @@ const { Option } = Select;
 const { Search } = Input;
 
 const Catalog = () => {
-  const [count, setCount] = useState(4);
   const [searchTitle, setSearchTitle] = useState("");
-  const [items, setItems] = useState(data.filter(
-    (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
-  ));
-
-  // useEffect(() => {
-  //   setItems((items) => data.slice(0, count));
-  // }, [count]);
-
-  const showMore = () => {
-    if (count >= data.length) {
-      alert("No more items in catalog!");
-    }
-    else {
-      setCount(count+4);
-    }
-  };
 
   const renderItems = () => {
-    setItems(data.filter(
-      (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
-    ));
     return data.filter(
       (item) => item.title.toLowerCase().search(searchTitle.toLowerCase()) !== -1
     );
@@ -70,26 +50,27 @@ const Catalog = () => {
           placeholder="Input title"
           allowClear
           size="large"
-          onSearch={(value, event) => setSearchTitle(value)}
+          onSearch={(value, event) => {
+            setSearchTitle(value);
+          }}
           style={{
             width: 200,
           }}
         />
       </Essentials>
       <CardWrapper>
-        {renderItems().map(({ title, image, brand, price }, idx) => (
-        <CardItem
-          title={title}
-          image={image}
-          brand={brand}
-          price={price}
-          key={idx}
-        />
-        ))}
+        {
+          renderItems().map(({ title, image, brand, price }, idx) => (
+            <CardItem
+              title={title}
+              image={image}
+              brand={brand}
+              price={price}
+              key={idx}
+            />
+          ))
+        }
       </CardWrapper>
-      <PrimaryButton type="primary" onClick={() => showMore()}>
-        Show more
-      </PrimaryButton>
     </PageContainer>
   )
 };

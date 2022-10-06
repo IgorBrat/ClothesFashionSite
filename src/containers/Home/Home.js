@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {SectionWrapper, CatalogWrapper, ButtonWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
 import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage1 from "../../assets/home-1.png";
@@ -10,9 +10,23 @@ import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
 import {NavLink} from "react-router-dom";
 
-const previewData = data.slice(0, 4);
-
 const Home = () => {
+  const [count, setCount] = useState(4);
+  const [items, setItems] = useState(data);
+
+  useEffect(() => {
+    setItems((items) => data.slice(0, count));
+  }, [count]);
+
+  const showMore = () => {
+    if (count < 8) {
+      setCount(count+4);
+    }
+    else {
+      window.open("/catalog","_self");
+    }
+  };
+
   return (
     <PageContainer>
       <Fade duration={3000}>
@@ -35,7 +49,7 @@ const Home = () => {
         <h1>Browse our catalog!</h1>
         <CatalogWrapper>
           <CardWrapper>
-            {previewData.map(({ title, image, brand, price }, idx) => (
+            {items.map(({ title, image, brand, price }, idx) => (
               <CardItem
                 title={title}
                 image={image}
@@ -46,10 +60,8 @@ const Home = () => {
             ))}
           </CardWrapper>
           <ButtonWrapper>
-            <PrimaryButton type="primary">
-              <NavLink to="/catalog">
-                Browse catalog
-              </NavLink>
+            <PrimaryButton type="primary" onClick={() => showMore()}>
+                Show more
             </PrimaryButton>
           </ButtonWrapper>
         </CatalogWrapper>
