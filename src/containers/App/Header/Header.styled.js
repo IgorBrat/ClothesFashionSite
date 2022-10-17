@@ -6,7 +6,6 @@ export const StyledHeader = styled.div`
   justify-content: space-around;
   width: 100%;
   align-items: center;
-  // background-color: rgba(42, 42, 56, 1);
 
   h2 {
     margin: 0;
