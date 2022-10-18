@@ -18,6 +18,13 @@ const data = [
     image: ImgModel1,
     brand: "Reebok",
     price: 715,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 2,
@@ -25,6 +32,13 @@ const data = [
     image: ImgModel2,
     brand: "Nike",
     price: 540,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 3,
@@ -32,6 +46,13 @@ const data = [
     image: ImgModel3,
     brand: "Adidas",
     price: 1610,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 4,
@@ -39,6 +60,13 @@ const data = [
     image: ImgModel4,
     brand: "Reebok",
     price: 2000,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 5,
@@ -46,6 +74,13 @@ const data = [
     image: ImgModel5,
     brand: "Puma",
     price: 1500,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 6,
@@ -53,6 +88,13 @@ const data = [
     image: ImgModel6,
     brand: "Tommy Hilfiger",
     price: 1350,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 7,
@@ -60,6 +102,13 @@ const data = [
     image: ImgModel7,
     brand: "FILA",
     price: 2100,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 8,
@@ -67,6 +116,13 @@ const data = [
     image: ImgModel8,
     brand: "Adidas",
     price: 1300,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 9,
@@ -74,6 +130,13 @@ const data = [
     image: ImgModel9,
     brand: "Tommy Hilfiger",
     price: 900,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 10,
@@ -81,6 +144,13 @@ const data = [
     image: ImgModel10,
     brand: "Vans",
     price: 3000,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 11,
@@ -88,6 +158,13 @@ const data = [
     image: ImgModel11,
     brand: "Puma",
     price: 2500,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
   {
     id: 12,
@@ -95,6 +172,13 @@ const data = [
     image: ImgModel12,
     brand: "Vans",
     price: 1800,
+    description: "Clothing (also known as clothes, apparel, and attire) are items " +
+     "worn on the body. Typically, clothing is made of fabrics or textiles, but over time it has included garments " +
+     "made from animal skin and other thin sheets of materials and natural products found in the environment, put together. " +
+     "The wearing of clothing is mostly restricted to human beings and is a feature of all human societies. The amount " +
+     "and type of clothing worn depends on gender, body type, social factors, and geographic considerations. Garments cover " +
+     "the body, footwear covers the feet, gloves cover the hands, while hats and headgear cover the head. Eyewear and " +
+     "jewelry are not generally considered items of clothing, but play an important role in fashion and clothing as costume."
   },
 ];
 
