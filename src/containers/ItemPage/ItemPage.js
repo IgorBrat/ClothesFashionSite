@@ -19,7 +19,7 @@ const ItemPage = () => {
     if (goBack) {
       navigate(-1);
     };
-  }, [goBack]);
+  });
 
   return (
     <ItemPageContainer>
