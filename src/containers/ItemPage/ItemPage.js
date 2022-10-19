@@ -5,6 +5,8 @@ import {ItemPageContainer, ItemWrapper, ItemFooter, DescriptionWrapper, InputWra
 import data from "../../resources/data";
 import PrimaryButton from "../../components/buttons/PrimaryButton.styled";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled";
+import {getItemById} from "../../api/items_api";
+import Loader from "../../components/Loader/Loader.styled";
 
 const { Option } = Select;
 
@@ -12,8 +14,15 @@ const ItemPage = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   const [goBack, setGoBack] = useState(false);
-  const [items, setItems] = useState(data);
-  const item = items.find((item) => item.id == id);
+  const [item, setItem] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getItemById(id).then((response) => {
+      setItem(response);
+      setIsLoading(false);
+    });
+  }, []);
 
   useEffect(() => {
     if (goBack) {
@@ -21,13 +30,13 @@ const ItemPage = () => {
     };
   });
 
+  if (isLoading) {
+    return <Loader />
+  }
   return (
     <ItemPageContainer>
+      {isLoading && <Loader />}
       <ItemWrapper>
-        <Image
-          width={600}
-          src={item.image}
-        />
         <DescriptionWrapper>
           <span>Brand: {item.brand}</span>
           <h1>{item.title}</h1>

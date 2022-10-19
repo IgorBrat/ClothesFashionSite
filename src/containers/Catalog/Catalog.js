@@ -6,7 +6,8 @@ import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled.js";
 import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "./CardWrapper/CardWrapper";
-import data from "../../resources/data";
+import Loader from "../../components/Loader/Loader.styled";
+import {getAllItems} from "../../api/items_api";
 
 const { Option } = Select;
 const { Search } = Input;
@@ -16,10 +17,20 @@ const Catalog = () => {
   const [filterBrand, setFilterBrand] = useState(null);
   const [minPrice, setMinPrice] = useState(null);
   const [maxPrice, setMaxPrice] = useState(null);
-  const [items, setItems] = useState(data);
+  const [itemsData, setItemsData] = useState([]);
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getAllItems().then((response) => {
+      setItemsData(response);
+      setItems(response);
+      setIsLoading(false);
+    });
+  }, []);
 
   const applyFilters = () => {
-    let filtered = [...data];
+    let filtered = [...itemsData];
     if (minPrice > maxPrice && maxPrice !== null) {
       alert("Minimum price can`t be bigger than maximum price");
     }
@@ -44,7 +55,7 @@ const Catalog = () => {
   };
 
   useEffect(() => {
-    setItems(data);
+    setItems(itemsData);
     clearInputs();
     if (searchTitle !== undefined){
       setItems((items) => items.filter(
@@ -54,7 +65,7 @@ const Catalog = () => {
   }, [searchTitle]);
 
   const clearInputs = () => {
-    setItems(data);
+    setItems(itemsData);
     setFilterBrand(null);
     setMaxPrice(null);
     setMinPrice(null);
@@ -110,6 +121,7 @@ const Catalog = () => {
           }}
         />
       </Essentials>
+      {isLoading && <Loader />}
       <CardWrapper>
         {
           items.map(({ id, title, image, brand, price }, idx) => (
