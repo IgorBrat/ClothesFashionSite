@@ -12,6 +12,9 @@ export const getAllItems = async () => {
 };
 
 export const getItemById = async (id) => {
-  console.log(id);
   return (await axiosInit.get(`/${id}`)).data;
+};
+
+export const getItemsFiltered = async(filters) => {
+  return (await axiosInit.get(``, { params: filters })).data;
 };

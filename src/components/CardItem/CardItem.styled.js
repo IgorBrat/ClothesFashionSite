@@ -13,6 +13,7 @@ export const StyledCard = styled(Card)`
   height: 100%;
   transition: width 0.5s, font-size 0.5s;
   margin: 40px 0;
+  // margin-right: 70px;
 
   Button {
     opacity: 0;

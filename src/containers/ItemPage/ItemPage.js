@@ -35,8 +35,8 @@ const ItemPage = () => {
   }
   return (
     <ItemPageContainer>
-      {isLoading && <Loader />}
       <ItemWrapper>
+        <Image src={item.image} width={600}/>
         <DescriptionWrapper>
           <span>Brand: {item.brand}</span>
           <h1>{item.title}</h1>

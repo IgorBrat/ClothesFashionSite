@@ -7,7 +7,7 @@ import SecondaryButton from "../../components/buttons/SecondaryButton.styled.js"
 import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "./CardWrapper/CardWrapper";
 import Loader from "../../components/Loader/Loader.styled";
-import {getAllItems} from "../../api/items_api";
+import {getAllItems, getItemsFiltered} from "../../api/items_api";
 
 const { Option } = Select;
 const { Search } = Input;
@@ -30,7 +30,9 @@ const Catalog = () => {
   }, []);
 
   const applyFilters = () => {
+    setIsLoading(true);
     let filtered = [...itemsData];
+    const filters = {};
     if (minPrice > maxPrice && maxPrice !== null) {
       alert("Minimum price can`t be bigger than maximum price");
     }
@@ -39,18 +41,18 @@ const Catalog = () => {
     }
     else {
       if (filterBrand !== null){
-        console.log("filterBrand");
-        filtered = filtered.filter((item) => item.brand.toLowerCase() === filterBrand.toLowerCase());
+        filters.filterBrand = filterBrand;
       };
       if (minPrice !== null){
-        console.log("minPrice");
-        filtered = filtered.filter((item) => item.price >= minPrice);
+        filters.minPrice = minPrice;
       };
       if (maxPrice !== null){
-        console.log(maxPrice);
-        filtered = filtered.filter((item) => item.price <= maxPrice);
+        filters.maxPrice = maxPrice;
       };
-      setItems(filtered);
+      getItemsFiltered(filters).then((response) => {
+        setItems(response);
+        setIsLoading(false);
+      });
     };
   };
 
@@ -131,6 +133,7 @@ const Catalog = () => {
               image={image}
               brand={brand}
               price={price}
+              image={image}
               key={id}
             />
           ))
