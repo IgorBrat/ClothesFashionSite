@@ -30,8 +30,6 @@ const Catalog = () => {
   }, []);
 
   const applyFilters = () => {
-    setIsLoading(true);
-    let filtered = [...itemsData];
     const filters = {};
     if (minPrice > maxPrice && maxPrice !== null) {
       alert("Minimum price can`t be bigger than maximum price");
@@ -40,13 +38,17 @@ const Catalog = () => {
       alert("Prices can`t be negative, though it would be a great idea☺");
     }
     else {
+      setIsLoading(true);
       if (filterBrand !== null){
+        console.log(1);
         filters.filterBrand = filterBrand;
       };
       if (minPrice !== null){
+        console.log(2);
         filters.minPrice = minPrice;
       };
       if (maxPrice !== null){
+        console.log(3);
         filters.maxPrice = maxPrice;
       };
       getItemsFiltered(filters).then((response) => {
@@ -133,7 +135,6 @@ const Catalog = () => {
               image={image}
               brand={brand}
               price={price}
-              image={image}
               key={id}
             />
           ))

@@ -7,7 +7,6 @@ import {Fade} from "react-awesome-reveal";
 import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
 import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
-import {NavLink} from "react-router-dom";
 import Loader from "../../components/Loader/Loader.styled";
 import {getAllItems} from "../../api/items_api";
 

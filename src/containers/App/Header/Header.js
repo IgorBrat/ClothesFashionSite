@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Button} from 'antd';
 import Logo from "../../../assets/favicon.png";
 import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled";

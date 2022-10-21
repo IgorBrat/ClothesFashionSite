@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { Select, InputNumber, Image } from 'antd';
 import {ItemPageContainer, ItemWrapper, ItemFooter, DescriptionWrapper, InputWrapper, ButtonWrapper} from "./ItemPage.styled";
-import data from "../../resources/data";
 import PrimaryButton from "../../components/buttons/PrimaryButton.styled";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled";
 import {getItemById} from "../../api/items_api";
@@ -22,7 +21,7 @@ const ItemPage = () => {
       setItem(response);
       setIsLoading(false);
     });
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (goBack) {
