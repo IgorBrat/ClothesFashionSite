@@ -1,6 +1,6 @@
 # Web lab 9
 
-Description: Start creating your React App with a simple Home page (see the link to wireframe above). Your e-commerce app subject is about your entities from previous (3-5) works.
+Description: Now, you are about to put a final touches on all pages you created - implement interaction with your REST API server.
 
 Variants -  (products that you are ‘selling’) the same as for previous works. (see the description to 3rd work)
 
