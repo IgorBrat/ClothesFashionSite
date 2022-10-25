@@ -7,7 +7,7 @@ import SecondaryButton from "../../components/buttons/SecondaryButton.styled";
 import {getItemById} from "../../api/items_api";
 import Loader from "../../components/Loader/Loader.styled";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem } from "../../redux/cartSlice";
+import { addItem } from "../../redux/cartSlice";
 
 const { Option } = Select;
 
@@ -17,9 +17,9 @@ const ItemPage = () => {
   const [goBack, setGoBack] = useState(false);
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [count, setCount] = useState(1);
 
   const dispatch = useDispatch();
-  const itemsRedux = useSelector((state) => state.cart.value);
 
   useEffect(() => {
     getItemById(id).then((response) => {
@@ -59,7 +59,8 @@ const ItemPage = () => {
             </Select>
             <span>Select count</span>
             <InputNumber size="large" placeholder="Select count"
-              defaultValue={1}
+              value={count}
+              onChange={(value, event) => setCount(value)}
             />
           </InputWrapper>
         </DescriptionWrapper>
@@ -72,7 +73,12 @@ const ItemPage = () => {
           </SecondaryButton>
           <PrimaryButton
           onClick={() => {
-            dispatch(addItem(item));
+            if (count < 1) {
+              alert("Can`t set count to zero");
+            }
+            else {
+              dispatch(addItem({content: item, count: count}));
+            };
           }}>
             Add to cart
           </PrimaryButton>

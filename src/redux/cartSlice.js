@@ -1,7 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { enableMapSet } from  "immer";
-
-enableMapSet();
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -10,10 +7,27 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.value.push(action.payload);
+      console.log(action.payload);
+      const idx = state.value.findIndex(item => item.content.id === action.payload.content.id);
+      if (idx === -1) {
+        console.log("No such item");
+        state.value.push(action.payload);
+      }
+      else {
+        console.log(`Found ${state.value[idx].count} items`);
+        state.value[idx].count += action.payload.count;
+      }
+      console.log("added");
+      console.log(state.value);
     },
     deleteItem: (state, action) => {
-      state.value.delete(action.payload);
+      state.value.forEach((item, index) => {
+        if (item.content.id === action.payload) {
+          state.value.splice(index, 1);
+          console.log('deleted');
+          console.log(state.value);
+        }
+      });
     },
   }
 });

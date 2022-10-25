@@ -12,14 +12,15 @@ const Cart = () => {
   console.log(items);
   return (
     <PageContainer>
-      {items.map(({ id, title, image, brand, price }) => (
+      {items.map(({ content, count }) => (
         <CardTile
-          id={id}
-          title={title}
-          image={image}
-          brand={brand}
-          price={price}
-          key={id}
+          id={content.id}
+          title={content.title}
+          image={content.image}
+          brand={content.brand}
+          price={content.price}
+          count={count}
+          key={content.id}
         />
       ))}
       <SecondaryButton onClick={() => navigate(`/catalog`)}>
