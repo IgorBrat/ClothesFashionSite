@@ -2,7 +2,7 @@
 
 Description: Now, you are about to put a final touches on all pages you created - implement interaction with your REST API server.
 
-Variants -  (products that you are ‘selling’) the same as for previous works. (see the description to 3rd work)
+Variants - (products that you are ‘selling’) the same as for previous works. (see the description to 3rd work)
 
 ## Requirements:
 
@@ -16,6 +16,11 @@ https://github.com/axios/axios#installing
 - Search with filters - should also be implemented with GET request (search by text field can be left as it is)
 Hint: pass filters as url parameter
 - Before response from your GET method is received you have to display a Spinner(Loader component) to the user. Something like this: https://projects.lukehaas.me/css-loaders/
+=======
+- Your items should be stored inside the state or context (your choice) of your page
+https://uk.reactjs.org/docs/hooks-state.html
+https://uk.reactjs.org/docs/hooks-reference.html#usecontext
+- For your state management use useState() inside Functional Component  instead of this.state and Class component
 
 ### React description
 
