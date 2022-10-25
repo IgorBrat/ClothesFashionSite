@@ -1,11 +1,7 @@
-import React from "react";
-import {Input, Button} from 'antd';
+import React, {useState, useEffect} from "react";
+import {Button} from 'antd';
 import Logo from "../../../assets/favicon.png";
-import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled"
-
-const { Search } = Input;
-
-const onSearch = (value) => console.log(value);
+import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled";
 
 const Header = () => {
   return (
@@ -15,14 +11,6 @@ const Header = () => {
         <h2>IBC Clothes Shop</h2>
       </IconWrapper>
       <Essentials>
-        <Search
-          placeholder="Input search text"
-          allowClear
-          onSearch={onSearch}
-          style={{
-            width: 200,
-          }}
-        />
         <ButtonWrapper>
           <Button type="primary">Log in</Button>
           <Button>Sign up</Button>

@@ -1,18 +1,32 @@
-import React from 'react';
-import {SectionWrapper, CatalogWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
+import React, {useState, useEffect} from 'react';
+import {SectionWrapper, CatalogWrapper, ButtonWrapper, SectionWrapperReversed, StyledText} from "./Home.styled";
 import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage1 from "../../assets/home-1.png";
 import HomeImage2 from "../../assets/home-2.png";
-import { Fade } from "react-awesome-reveal";
-import {Button} from 'antd';
-import {data} from "../../resources/data";
-import {PrimaryButton} from "../../components/buttons/PrimaryButton.styled.js";
-import {PageContainer} from "../PageContainer.styled.js";
-import {CardWrapper} from "../Catalog/CardWrapper/CardWrapper";
-
-const previewData = data.slice(0, 4);
+import {Fade} from "react-awesome-reveal";
+import data from "../../resources/data";
+import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
+import PageContainer from "../PageContainer.styled.js";
+import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
+import {NavLink} from "react-router-dom";
 
 const Home = () => {
+  const [count, setCount] = useState(4);
+  const [items, setItems] = useState(data);
+
+  useEffect(() => {
+    setItems((items) => data.slice(0, count));
+  }, [count]);
+
+  const showMore = () => {
+    if (count < 8) {
+      setCount(count+4);
+    }
+    else {
+      window.open("/catalog","_self");
+    }
+  };
+
   return (
     <PageContainer>
       <Fade duration={3000}>
@@ -35,7 +49,7 @@ const Home = () => {
         <h1>Browse our catalog!</h1>
         <CatalogWrapper>
           <CardWrapper>
-            {previewData.map(({ title, image, brand, price }, idx) => (
+            {items.map(({ title, image, brand, price }, idx) => (
               <CardItem
                 title={title}
                 image={image}
@@ -45,9 +59,11 @@ const Home = () => {
               />
             ))}
           </CardWrapper>
-          <div>
-            <PrimaryButton type="primary">Show more</PrimaryButton>
-          </div>
+          <ButtonWrapper>
+            <PrimaryButton type="primary" onClick={() => showMore()}>
+                Show more
+            </PrimaryButton>
+          </ButtonWrapper>
         </CatalogWrapper>
       </Fade>
     </PageContainer>

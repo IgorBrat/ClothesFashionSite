@@ -1,9 +1,11 @@
 import React from "react";
 import {Card, Button} from "antd";
-import {CardFooter, StyledCard } from "./CardItem.styled.js"
+import {CardFooter, StyledCard } from "./CardItem.styled.js";
+import {NavLink} from "react-router-dom";
+
 const {Meta} = Card;
 
-const CardItem = ({title="Empty", image, brand, price}) => {
+const CardItem = ({id, title="Empty", image, brand, price}) => {
   return (
     <StyledCard
       hoverable
@@ -15,7 +17,11 @@ const CardItem = ({title="Empty", image, brand, price}) => {
       <span>From <b><i>{brand}</i></b> to people</span>
       <CardFooter>
         <span>Price: {price}$</span>
-        <Button size="large">View item</Button>
+        <Button size="large">
+          <NavLink to={`/catalog/${id}`}>
+            View item
+          </NavLink>
+        </Button>
       </CardFooter>
     </StyledCard>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
+const CardWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 40px 0px;
@@ -12,3 +12,5 @@ export const CardWrapper = styled.div`
     justify-content: center;
   }
 `;
+
+export default CardWrapper;

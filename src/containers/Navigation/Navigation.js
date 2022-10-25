@@ -8,7 +8,8 @@ import React from "react";
 import Home from "../Home/Home.js";
 import Catalog from "../Catalog/Catalog.js";
 import Cart from "../Cart/Cart.js";
-import {Wrapper} from './Navigation.styled'
+import {Wrapper} from './Navigation.styled';
+import ItemPage from "../ItemPage/ItemPage.js";
 
 const Navigation = () => {
   return (
@@ -47,6 +48,7 @@ const Navigation = () => {
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/catalog" element={<Catalog/>}/>
           <Route exact path="/cart" element={<Cart/>}/>
+          <Route exact path="/catalog/:id" element={<ItemPage/>}/>
         </Routes>
       </Wrapper>
     </Router>
