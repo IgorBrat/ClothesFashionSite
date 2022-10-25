@@ -18,16 +18,11 @@ const cartSlice = createSlice({
         state.value[idx].count += action.payload.count;
       }
       console.log("added");
-      console.log(state.value);
     },
     deleteItem: (state, action) => {
-      state.value.forEach((item, index) => {
-        if (item.content.id === action.payload) {
-          state.value.splice(index, 1);
-          console.log('deleted');
-          console.log(state.value);
-        }
-      });
+      const idx = state.value.findIndex(item => item.content.id === action.payload);
+      state.value.splice(idx, 1);
+      console.log('deleted');
     },
   }
 });

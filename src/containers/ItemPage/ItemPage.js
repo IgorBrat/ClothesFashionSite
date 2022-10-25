@@ -6,7 +6,7 @@ import PrimaryButton from "../../components/buttons/PrimaryButton.styled";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled";
 import {getItemById} from "../../api/items_api";
 import Loader from "../../components/Loader/Loader.styled";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cartSlice";
 
 const { Option } = Select;
@@ -74,7 +74,7 @@ const ItemPage = () => {
           <PrimaryButton
           onClick={() => {
             if (count < 1) {
-              alert("Can`t set count to zero");
+              alert("Can`t set count less than 1");
             }
             else {
               dispatch(addItem({content: item, count: count}));
