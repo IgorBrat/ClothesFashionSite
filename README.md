@@ -1,22 +1,26 @@
-# Web lab 8
+# Web lab 9
 
-Description: Continue work on your React App by adding a page for  your Item (see the link to wireframe of Item page above). Also, now, you have to make all your previous pages (Home & Catalog) more interactive.
+Description: Now, you are about to put a final touches on all pages you created - implement interaction with your REST API server.
 
 Variants - (products that you are ‘selling’) the same as for previous works. (see the description to 3rd work)
 
 ## Requirements:
 
+- For any http request - use axios library
+https://github.com/axios/axios#installing
+- All your API functions should be separated into single file (or folder, if you want) - just like you saw in Live coding for 5 lab with fetch() function
+
+## Functionality:
+
+- On Catalog Page - all items should now be fetched from your backend with GET method (using axios)
+- Search with filters - should also be implemented with GET request (search by text field can be left as it is)
+Hint: pass filters as url parameter
+- Before response from your GET method is received you have to display a Spinner(Loader component) to the user. Something like this: https://projects.lukehaas.me/css-loaders/
+=======
 - Your items should be stored inside the state or context (your choice) of your page
 https://uk.reactjs.org/docs/hooks-state.html
 https://uk.reactjs.org/docs/hooks-reference.html#usecontext
 - For your state management use useState() inside Functional Component  instead of this.state and Class component
-
-## Functionality:
-
-- Home page: “View more” button should display more elements on the same page Tip: Elements can be just random paragraph & heading, use your imagination ;)
-- Catalog page: You should be able to filter your items list, by applying different filters by item's properties (i.e size/color/type)
-- Catalog page: Search by any text property option should also work
-- Catalog & Item pages: “View more” action on every item should refer to corresponding Item page, with correct information about item (get the info from your state/context)
 
 ### React description
 

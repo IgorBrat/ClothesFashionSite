@@ -20,10 +20,11 @@ export const DescriptionWrapper = styled.div`
   > span {
     text-align: center;
     font-size: 20px;
-    background-color: rgb(73, 72, 77);
+    background-color: #49484d;
     border-radius: 20px;
     display: inline-block;
-    width: 150px;
+    padding: 0 10px;
+    // width: 180px;
   }
 
   p {

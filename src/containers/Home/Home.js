@@ -4,18 +4,23 @@ import CardItem from "../../components/CardItem/CardItem.js";
 import HomeImage1 from "../../assets/home-1.png";
 import HomeImage2 from "../../assets/home-2.png";
 import {Fade} from "react-awesome-reveal";
-import data from "../../resources/data";
 import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
 import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
-import {NavLink} from "react-router-dom";
+import Loader from "../../components/Loader/Loader.styled";
+import {getAllItems} from "../../api/items_api";
 
 const Home = () => {
   const [count, setCount] = useState(4);
-  const [items, setItems] = useState(data);
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setItems((items) => data.slice(0, count));
+    setIsLoading(true);
+    getAllItems().then((response) => {
+      setItems(response.slice(0, count));
+      setIsLoading(false);
+    });
   }, [count]);
 
   const showMore = () => {
@@ -47,15 +52,17 @@ const Home = () => {
           <img src={HomeImage2} alt="home-img-2"/>
         </SectionWrapperReversed>
         <h1>Browse our catalog!</h1>
+        {isLoading && <Loader />}
         <CatalogWrapper>
           <CardWrapper>
-            {items.map(({ title, image, brand, price }, idx) => (
+            {items.map(({ id, title, image, brand, price }, idx) => (
               <CardItem
+                id={id}
                 title={title}
                 image={image}
                 brand={brand}
                 price={price}
-                key={idx}
+                key={id}
               />
             ))}
           </CardWrapper>
