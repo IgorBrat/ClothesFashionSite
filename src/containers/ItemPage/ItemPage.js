@@ -6,6 +6,8 @@ import PrimaryButton from "../../components/buttons/PrimaryButton.styled";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled";
 import {getItemById} from "../../api/items_api";
 import Loader from "../../components/Loader/Loader.styled";
+import { useSelector, useDispatch } from "react-redux";
+import { addItem, removeItem } from "../../redux/cartSlice";
 
 const { Option } = Select;
 
@@ -15,6 +17,9 @@ const ItemPage = () => {
   const [goBack, setGoBack] = useState(false);
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  const itemsRedux = useSelector((state) => state.cart.value);
 
   useEffect(() => {
     getItemById(id).then((response) => {
@@ -65,7 +70,10 @@ const ItemPage = () => {
           <SecondaryButton onClick={() => {setGoBack(true);}}>
             Go back
           </SecondaryButton>
-          <PrimaryButton>
+          <PrimaryButton
+          onClick={() => {
+            dispatch(addItem(item));
+          }}>
             Add to cart
           </PrimaryButton>
         </ButtonWrapper>

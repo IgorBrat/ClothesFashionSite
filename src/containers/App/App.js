@@ -3,15 +3,17 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation.js';
 import Header from './Header/Header.js';
 import Footer from './Footer/Footer.js';
+import {Provider} from "react-redux";
 import 'antd/dist/antd.min.css';
+import store from "../../redux/store";
 
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <Header />
       <Navigation />
       <Footer />
-    </div>
+    </Provider>
   );
 };
 
