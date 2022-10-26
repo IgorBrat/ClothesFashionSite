@@ -9,11 +9,13 @@ import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "../Catalog/CardWrapper/CardWrapper";
 import Loader from "../../components/Loader/Loader.styled";
 import {getAllItems} from "../../api/items_api";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [count, setCount] = useState(4);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,7 +30,7 @@ const Home = () => {
       setCount(count+4);
     }
     else {
-      window.open("/catalog","_self");
+      navigate('/catalog');
     }
   };
 

@@ -24,8 +24,17 @@ const cartSlice = createSlice({
       state.value.splice(idx, 1);
       console.log('deleted');
     },
+    changeCount: (state, action) => {
+      const idx = state.value.findIndex(item => item.content.id === action.payload.id);
+      if (action.payload.increase) {
+        state.value[idx].count += 1
+      }
+      else {
+        state.value[idx].count -= 1
+      }
+    },
   }
 });
 
-export const {addItem, deleteItem} = cartSlice.actions;
+export const {addItem, deleteItem, changeCount} = cartSlice.actions;
 export default cartSlice.reducer;
