@@ -3,6 +3,8 @@ import StyledCardTile, {CountWrapper, DescriptionWrapper, ChangeButton} from "./
 import PrimaryButton from "../buttons/PrimaryButton.styled.js";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteItem, changeCount } from "../../redux/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CardTile = ({id, title, image, brand, price}) => {
   const items = useSelector((state) => state.cart.value);
@@ -25,12 +27,24 @@ const CardTile = ({id, title, image, brand, price}) => {
       dispatch(changeCount({id: id, increase: false}));
     }
     else {
-      alert("Item count can`t be less than 1");
+      toast("Item count can`t be less than 1");
     }
   };
 
   return (
     <StyledCardTile>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <img src={image} alt={title} />
       <h2>{previewTitle}</h2>
       <CountWrapper>
