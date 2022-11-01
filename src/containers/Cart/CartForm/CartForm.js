@@ -62,7 +62,6 @@ const CartForm = () => {
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
             resetForm();
             for (const item of items) {

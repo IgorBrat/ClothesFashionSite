@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import StyledCardTile, {CountWrapper, DescriptionWrapper, ChangeButton} from "./CardTile.styled";
+import StyledCardTile, {CountWrapper, ChangeButton} from "./CardTile.styled";
 import PrimaryButton from "../buttons/PrimaryButton.styled.js";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteItem, changeCount } from "../../redux/cartSlice";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CardTile = ({id, title, image, brand, price}) => {

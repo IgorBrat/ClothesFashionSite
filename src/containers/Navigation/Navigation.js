@@ -12,6 +12,8 @@ import {Wrapper} from './Navigation.styled';
 import ItemPage from "../ItemPage/ItemPage.js";
 import CartForm from "../Cart/CartForm/CartForm.js";
 import SuccessPage from "../Cart/FormSuccess/SuccessPage.js";
+import SignIn from "../SignIn/SignIn.js";
+import SignUp from "../SignUp/SignUp.js";
 
 const Navigation = () => {
   return (
@@ -48,6 +50,8 @@ const Navigation = () => {
         </ul>
         <Routes>
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/login" element={<SignIn/>}/>
+          <Route exact path="/register" element={<SignUp/>}/>
           <Route exact path="/catalog" element={<Catalog/>}/>
           <Route exact path="/catalog/:id" element={<ItemPage/>}/>
           <Route exact path="/cart" element={<Cart/>}/>
