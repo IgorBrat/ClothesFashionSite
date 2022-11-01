@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import CartContainer from "./CartContainer.styled";
 import PrimaryButton from "../../../components/buttons/PrimaryButton.styled.js";
@@ -8,9 +8,13 @@ import { useNavigate } from "react-router-dom";
 import CustomField from "./CustomField/CustomField";
 import ButtonWrapper from "../../../components/ButtonWrapper/ButtonWrapper.styled";
 import {FieldRow, TermsWrapper} from "./CustomField/FieldWrapper.styled";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteItem } from "../../../redux/cartSlice";
 
 const CartForm = () => {
   const navigate = useNavigate();
+  const items = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
 
   return (
     <CartContainer>
@@ -54,13 +58,16 @@ const CartForm = () => {
           .max(30, "Must be 30 characters or less"),
           terms: Yup.boolean()
           .required('Required')
-          .oneOf([true], "Must accept terms and conditions")
+          .oneOf([true], "Must accept")
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
             resetForm();
+            for (const item of items) {
+              dispatch(deleteItem(item.id));
+            }
             navigate('/cart/submit/success');
           }, 3000);
         }}
@@ -86,9 +93,10 @@ const CartForm = () => {
               <SecondaryButton onClick={() => {navigate(-1);}}>
                 Go back
               </SecondaryButton>
-              <button type="submit">{props.isSubmitting
+              <PrimaryButton type="submit" htmlType="submit">{props.isSubmitting
                 ? "Loading..."
-                : "Submit"}</button>
+                : "Submit"}
+              </PrimaryButton>
             </ButtonWrapper>
           </Form>
         )}

@@ -12,7 +12,7 @@ const PrimaryButton = styled(Button)`
   :hover, ::selection {
     background-color: #0d152e;
     border-color: black;
-    color: inherit;
+    color: #bababa;
   }
   :focus {
     background-color: #301511;

@@ -20,7 +20,7 @@ const Cart = () => {
   }
 
   const checkCart = () => {
-    if (items.length == 0) {
+    if (items.length === 0) {
       toast("Your cart is empty");
     }
     else {
@@ -52,12 +52,12 @@ const Cart = () => {
           key={content.id}
         />
       ))}
-      <h1>Total price: {totalPrice}$</h1>
-      <ButtonWrapper>
-        <SecondaryButton onClick={() => navigate(`/catalog`)}>
-          Go to catalog
-        </SecondaryButton>
-        <PrimaryButton onClick={() => checkCart()}>Confirm</PrimaryButton>
+      <h1>{totalPrice>0 ? `Total price: ${totalPrice}$` : `Your cart is empty, go to Catalog.`}</h1>
+        <ButtonWrapper>
+          <SecondaryButton onClick={() => navigate(`/catalog`)}>
+            Go to catalog
+          </SecondaryButton>
+          <PrimaryButton onClick={() => checkCart()}>Confirm</PrimaryButton>
       </ButtonWrapper>
     </PageContainer>
   )
