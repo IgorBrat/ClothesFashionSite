@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const CartContainer = styled.div`
+const FormContainer = styled.div`
   color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  margin: 40px 0;
 `;
 
-export default CartContainer;
+export default FormContainer;

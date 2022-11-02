@@ -5,12 +5,28 @@ import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled.js";
 import { useNavigate } from "react-router-dom";
 import ButtonWrapper from "../../components/ButtonWrapper/ButtonWrapper.styled";
+import CustomField from "../../components/CustomField/CustomField";
+import FormContainer from "../FormContainer.styled";
+import { ToastContainer, toast } from 'react-toastify';
+import {checkUser} from "../../local_storage/localStorageLogic.js";
 
 const SignIn = () => {
   const navigate = useNavigate();
 
   return (
-    <CartContainer>
+    <FormContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Formik
         initialValues={{
           email: '',
@@ -25,29 +41,34 @@ const SignIn = () => {
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setTimeout(() => {
-            setSubmitting(false);
-            resetForm();
-            navigate('/');
-          }, 3000);
+            if (checkUser(values)) {
+              localStorage.setItem('loggedUserEmail', values.email);
+              setSubmitting(false);
+              resetForm();
+              navigate('/');
+            }
+            else {
+              toast("Incorrect email or password");
+            }
+          }, 1000);
         }}
       >
         {props => (
           <Form>
             <CustomField type="email" name="email" placeholder="Email"/>
-            <CustomField type="phone" name="phone" placeholder="Phone"/>
+            <CustomField type="password" name="password" placeholder="Password"/>
             <ButtonWrapper>
               <SecondaryButton onClick={() => {navigate(`/register`);}}>
                 Register
               </SecondaryButton>
-              <PrimaryButton type="submit" htmlType="submit">{props.isSubmitting
-                ? "Loading..."
-                : "Log in"}
+              <PrimaryButton type="submit" htmlType="submit">
+                Log In
               </PrimaryButton>
             </ButtonWrapper>
           </Form>
         )}
       </Formik>
-    </CartContainer>
+    </FormContainer>
   );
 };
 

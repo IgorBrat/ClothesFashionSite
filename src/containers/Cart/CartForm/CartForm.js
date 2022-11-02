@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import CartContainer from "./CartContainer.styled";
+import FormContainer from "../../FormContainer.styled";
 import PrimaryButton from "../../../components/buttons/PrimaryButton.styled.js";
 import SecondaryButton from "../../../components/buttons/SecondaryButton.styled.js";
 import { useNavigate } from "react-router-dom";
-import CustomField from "./CustomField/CustomField";
+import CustomField from "../../../components/CustomField/CustomField";
 import ButtonWrapper from "../../../components/ButtonWrapper/ButtonWrapper.styled";
-import {FieldRow, TermsWrapper} from "./CustomField/FieldWrapper.styled";
+import {FieldRow, TermsWrapper} from "../../../components/CustomField/FieldWrapper.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteItem } from "../../../redux/cartSlice";
 
@@ -17,7 +17,7 @@ const CartForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <CartContainer>
+    <FormContainer>
       <Formik
         initialValues={{
           name: '',
@@ -100,7 +100,7 @@ const CartForm = () => {
           </Form>
         )}
       </Formik>
-    </CartContainer>
+    </FormContainer>
   );
 };
 

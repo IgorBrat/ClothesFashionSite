@@ -5,12 +5,28 @@ import PrimaryButton from "../../components/buttons/PrimaryButton.styled.js";
 import SecondaryButton from "../../components/buttons/SecondaryButton.styled.js";
 import { useNavigate } from "react-router-dom";
 import ButtonWrapper from "../../components/ButtonWrapper/ButtonWrapper.styled";
+import CustomField from "../../components/CustomField/CustomField";
+import FormContainer from "../FormContainer.styled";
+import { ToastContainer, toast } from 'react-toastify';
+import {addUser} from "../../local_storage/localStorageLogic.js";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
   return (
-    <CartContainer>
+    <FormContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Formik
         initialValues={{
           username: '',
@@ -33,10 +49,20 @@ const SignUp = () => {
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setTimeout(() => {
-            setSubmitting(false);
-            resetForm();
-            navigate('/');
-          }, 3000);
+            if (values.password !== values.rePassword) {
+              toast("Passwords don`t match");
+            }
+            else {
+              if (addUser(values)) {
+                setSubmitting(false);
+                resetForm();
+                navigate('/');
+              }
+              else {
+                toast("User already exists: Log In");
+              }
+            }
+          }, 1000);
         }}
       >
         {props => (
@@ -57,7 +83,7 @@ const SignUp = () => {
           </Form>
         )}
       </Formik>
-    </CartContainer>
+    </FormContainer>
   );
 };
 

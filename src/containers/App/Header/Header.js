@@ -2,8 +2,10 @@ import React from "react";
 import {Button} from 'antd';
 import Logo from "../../../assets/favicon.png";
 import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled";
+import {logOutUser} from "../../../local_storage/localStorageLogic.js";
 
 const Header = () => {
+
   return (
     <StyledHeader>
       <IconWrapper>
@@ -12,8 +14,7 @@ const Header = () => {
       </IconWrapper>
       <Essentials>
         <ButtonWrapper>
-          <Button type="primary">Log in</Button>
-          <Button>Sign up</Button>
+          <Button type="primary" onClick={() => logOutUser()}>Log out</Button>
         </ButtonWrapper>
       </Essentials>
     </StyledHeader>
