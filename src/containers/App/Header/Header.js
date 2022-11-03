@@ -5,7 +5,6 @@ import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.sty
 import {logOutUser} from "../../../local_storage/localStorageLogic.js";
 
 const Header = () => {
-
   return (
     <StyledHeader>
       <IconWrapper>
@@ -14,7 +13,10 @@ const Header = () => {
       </IconWrapper>
       <Essentials>
         <ButtonWrapper>
-          <Button type="primary" onClick={() => logOutUser()}>Log out</Button>
+          <Button type="primary" onClick={() => {
+            logOutUser();
+            window.open('/login', '_self');
+          }}>Log out</Button>
         </ButtonWrapper>
       </Essentials>
     </StyledHeader>

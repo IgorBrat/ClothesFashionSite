@@ -4,7 +4,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
 import Home from "../Home/Home.js";
 import Catalog from "../Catalog/Catalog.js";
 import Cart from "../Cart/Cart.js";
@@ -14,8 +14,19 @@ import CartForm from "../Cart/CartForm/CartForm.js";
 import SuccessPage from "../Cart/FormSuccess/SuccessPage.js";
 import SignIn from "../SignIn/SignIn.js";
 import SignUp from "../SignUp/SignUp.js";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Navigation = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const login = () => {
+    setIsAuthenticated(true);
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
     <Router>
       <Wrapper>
