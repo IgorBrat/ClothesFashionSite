@@ -47,16 +47,16 @@ const SignUp = () => {
           rePassword: Yup.string()
           .required('Required'),
         })}
-        onSubmit={(values, {setSubmitting, resetForm}) => {
+        onSubmit={({username, email, password, rePassword}, {setSubmitting, resetForm}) => {
           setTimeout(() => {
-            if (values.password !== values.rePassword) {
+            if (password !== rePassword) {
               toast("Passwords don`t match");
             }
             else {
-              if (addUser(values)) {
+              if (addUser({username, email, password})) {
                 setSubmitting(false);
                 resetForm();
-                navigate('/');
+                window.open('/', '_self');
               }
               else {
                 toast("User already exists: Log In");
@@ -75,9 +75,8 @@ const SignUp = () => {
               <SecondaryButton onClick={() => {navigate(`/login`);}}>
                 Log In
               </SecondaryButton>
-              <PrimaryButton type="submit" htmlType="submit">{props.isSubmitting
-                ? "Loading..."
-                : "Register"}
+              <PrimaryButton type="submit" htmlType="submit">
+                Register
               </PrimaryButton>
             </ButtonWrapper>
           </Form>

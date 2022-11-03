@@ -1,15 +1,15 @@
 import React from "react";
-import {Route, Navigate} from "react-router-dom";
-import SignIn from "../SignIn/SignIn.js";
+import {Navigate} from "react-router-dom";
 
-const ProtectedRoute = ({props}) => {
-  let Component = props.component;
+const ProtectedRoute = ({
+  isAuthenticated: auth,
+  component: Component
+}) => {
 
-  if (props.isAuthenticated) {
-    return (<Route exact path={props.path} element={<Component />}/>);
-  } else {
-    return (<Route exact path="/login" element={<SignIn/>} />);
+  if (!auth) {
+    return <Navigate to="/login" replace />;
   }
+  return <Component />;
 }
 
 export default ProtectedRoute;

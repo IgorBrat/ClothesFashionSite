@@ -1,6 +1,8 @@
 export const addUser = (props) => {
   const users = getUsers();
-  if (checkUser(props)) {
+  const exUser = users
+  .find((user) => user.email === props.email);
+  if (exUser !== undefined) {
     return false;
   }
   else {

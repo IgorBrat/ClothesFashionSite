@@ -45,7 +45,7 @@ const SignIn = () => {
               localStorage.setItem('loggedUserEmail', values.email);
               setSubmitting(false);
               resetForm();
-              navigate('/');
+              window.open('/', '_self');
             }
             else {
               toast("Incorrect email or password");

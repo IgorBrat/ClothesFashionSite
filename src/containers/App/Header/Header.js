@@ -5,6 +5,8 @@ import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.sty
 import {logOutUser} from "../../../local_storage/localStorageLogic.js";
 
 const Header = () => {
+  const loggedUserEmail = localStorage.getItem('loggedUserEmail');
+
   return (
     <StyledHeader>
       <IconWrapper>
@@ -13,10 +15,12 @@ const Header = () => {
       </IconWrapper>
       <Essentials>
         <ButtonWrapper>
-          <Button type="primary" onClick={() => {
+          {(loggedUserEmail !== 'null')
+          ? <Button type="primary" onClick={() => {
             logOutUser();
             window.open('/login', '_self');
           }}>Log out</Button>
+          : null}
         </ButtonWrapper>
       </Essentials>
     </StyledHeader>

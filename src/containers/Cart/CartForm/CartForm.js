@@ -67,7 +67,7 @@ const CartForm = () => {
             for (const item of items) {
               dispatch(deleteItem(item.id));
             }
-            navigate('/cart/submit/success');
+            navigate('/cart/submit&success');
           }, 3000);
         }}
       >

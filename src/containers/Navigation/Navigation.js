@@ -4,7 +4,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import React, {useState} from "react";
+import React from "react";
 import Home from "../Home/Home.js";
 import Catalog from "../Catalog/Catalog.js";
 import Cart from "../Cart/Cart.js";
@@ -17,20 +17,12 @@ import SignUp from "../SignUp/SignUp.js";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Navigation = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const login = () => {
-    setIsAuthenticated(true);
-  };
-
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
+  const loggedUserEmail = localStorage.getItem('loggedUserEmail');
 
   return (
     <Router>
       <Wrapper>
-        <ul>
+        {(loggedUserEmail !== 'null') ? <ul>
           <li>
             <NavLink to="/"
               className={({ isActive }) =>
@@ -59,15 +51,40 @@ const Navigation = () => {
             </NavLink>
           </li>
         </ul>
+        : null}
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={Home}
+            />
+          }/>
           <Route exact path="/login" element={<SignIn/>}/>
           <Route exact path="/register" element={<SignUp/>}/>
-          <Route exact path="/catalog" element={<Catalog/>}/>
-          <Route exact path="/catalog/:id" element={<ItemPage/>}/>
-          <Route exact path="/cart" element={<Cart/>}/>
-          <Route exact path="/cart/submit" element={<CartForm/>}/>
-          <Route exact path="/cart/submit/success" element={<SuccessPage/>}/>
+          <Route exact path="/catalog" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={Catalog}
+            />
+          }/>
+          <Route exact path="/catalog/:id" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={ItemPage}
+            />
+          }/>
+          <Route exact path="/cart" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={Cart}
+            />
+          }/>
+          <Route exact path="/cart/submit" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={CartForm}
+            />
+          }/>
+          <Route exact path="/cart/submit&success" element={
+            <ProtectedRoute isAuthenticated={loggedUserEmail !== 'null'}
+            component={SuccessPage}
+            />
+          }/>
         </Routes>
       </Wrapper>
     </Router>
