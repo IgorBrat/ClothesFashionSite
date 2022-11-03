@@ -78,7 +78,7 @@ const CartForm = () => {
               <CustomField name="surname" placeholder="Surname"/>
             </FieldRow>
             <CustomField type="email" name="email" placeholder="Email"/>
-            <CustomField type="phone" name="phone" placeholder="Phone"/>
+            <CustomField name="phone" placeholder="Phone"/>
             <FieldRow>
               <CustomField name="country" placeholder="Country"/>
               <CustomField name="city_region" placeholder="City/Region"/>

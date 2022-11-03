@@ -6,7 +6,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  margin: 40px 0;
+  margin: 80px 0;
 `;
 
 export default FormContainer;

@@ -4,7 +4,7 @@ const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-  // width: 100%;
+  // min-width: 300px;
 
   .error {
     color: red;
