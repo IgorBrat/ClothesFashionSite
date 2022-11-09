@@ -2,8 +2,11 @@ import React from "react";
 import {Button} from 'antd';
 import Logo from "../../../assets/favicon.png";
 import {StyledHeader, IconWrapper, ButtonWrapper, Essentials} from "./Header.styled";
+import {logOutUser} from "../../../local_storage/localStorageLogic.js";
 
 const Header = () => {
+  const loggedUserEmail = localStorage.getItem('loggedUserEmail');
+
   return (
     <StyledHeader>
       <IconWrapper>
@@ -12,8 +15,12 @@ const Header = () => {
       </IconWrapper>
       <Essentials>
         <ButtonWrapper>
-          <Button type="primary">Log in</Button>
-          <Button>Sign up</Button>
+          {(loggedUserEmail !== 'null')
+          ? <Button type="primary" onClick={() => {
+            logOutUser();
+            window.open('/login', '_self');
+          }}>Log out</Button>
+          : null}
         </ButtonWrapper>
       </Essentials>
     </StyledHeader>

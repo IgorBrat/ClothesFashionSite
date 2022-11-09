@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import CartContainer from "./CartContainer.styled";
+import FormContainer from "../../FormContainer.styled";
 import PrimaryButton from "../../../components/buttons/PrimaryButton.styled.js";
 import SecondaryButton from "../../../components/buttons/SecondaryButton.styled.js";
 import { useNavigate } from "react-router-dom";
-import CustomField from "./CustomField/CustomField";
+import CustomField from "../../../components/CustomField/CustomField";
 import ButtonWrapper from "../../../components/ButtonWrapper/ButtonWrapper.styled";
-import {FieldRow, TermsWrapper} from "./CustomField/FieldWrapper.styled";
+import {FieldRow, TermsWrapper} from "../../../components/CustomField/FieldWrapper.styled";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteItem } from "../../../redux/cartSlice";
 
@@ -17,7 +17,7 @@ const CartForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <CartContainer>
+    <FormContainer>
       <Formik
         initialValues={{
           name: '',
@@ -62,13 +62,12 @@ const CartForm = () => {
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
             resetForm();
             for (const item of items) {
               dispatch(deleteItem(item.id));
             }
-            navigate('/cart/submit/success');
+            navigate('/cart/submit&success');
           }, 3000);
         }}
       >
@@ -79,7 +78,7 @@ const CartForm = () => {
               <CustomField name="surname" placeholder="Surname"/>
             </FieldRow>
             <CustomField type="email" name="email" placeholder="Email"/>
-            <CustomField type="phone" name="phone" placeholder="Phone"/>
+            <CustomField name="phone" placeholder="Phone"/>
             <FieldRow>
               <CustomField name="country" placeholder="Country"/>
               <CustomField name="city_region" placeholder="City/Region"/>
@@ -101,7 +100,7 @@ const CartForm = () => {
           </Form>
         )}
       </Formik>
-    </CartContainer>
+    </FormContainer>
   );
 };
 

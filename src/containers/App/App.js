@@ -8,10 +8,11 @@ import 'antd/dist/antd.min.css';
 import store from "../../redux/store";
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <Header />
-      <Navigation />
+      <Navigation/>
       <Footer />
     </Provider>
   );

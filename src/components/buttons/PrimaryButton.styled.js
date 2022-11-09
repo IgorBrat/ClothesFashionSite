@@ -8,6 +8,7 @@ const PrimaryButton = styled(Button)`
   background-color: grey;
   border-color: black;
   max-width: 300px;
+  margin: 0 20px;
 
   :hover, ::selection {
     background-color: #0d152e;

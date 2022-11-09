@@ -8,6 +8,7 @@ const SecondaryButton = styled(Button)`
   background-color: white;
   border-color: black;
   max-width: 300px;
+  margin: 0 20px;
 
   :hover, ::selection {
     border-color: #383733;
