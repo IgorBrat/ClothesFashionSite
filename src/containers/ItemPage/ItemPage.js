@@ -8,6 +8,8 @@ import {getItemById} from "../../api/items_api";
 import Loader from "../../components/Loader/Loader.styled";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const { Option } = Select;
 
@@ -39,6 +41,18 @@ const ItemPage = () => {
   }
   return (
     <ItemPageContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <ItemWrapper>
         <Image src={item.image} width={600}/>
         <DescriptionWrapper>
@@ -72,14 +86,14 @@ const ItemPage = () => {
             Go back
           </SecondaryButton>
           <PrimaryButton
-          onClick={() => {
-            if (count < 1) {
-              alert("Can`t set count less than 1");
-            }
-            else {
-              dispatch(addItem({content: item, count: count}));
-            };
-          }}>
+            onClick={() => {
+              if (count < 1) {
+                toast("Can`t set count less than 1");
+              }
+              else {
+                dispatch(addItem({content: item, count: count}));
+              };
+            }}>
             Add to cart
           </PrimaryButton>
         </ButtonWrapper>

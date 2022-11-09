@@ -10,6 +10,8 @@ import Catalog from "../Catalog/Catalog.js";
 import Cart from "../Cart/Cart.js";
 import {Wrapper} from './Navigation.styled';
 import ItemPage from "../ItemPage/ItemPage.js";
+import CartForm from "../Cart/CartForm/CartForm.js";
+import SuccessPage from "../Cart/FormSuccess/SuccessPage.js";
 
 const Navigation = () => {
   return (
@@ -47,8 +49,10 @@ const Navigation = () => {
         <Routes>
           <Route exact path="/" element={<Home/>}/>
           <Route exact path="/catalog" element={<Catalog/>}/>
-          <Route exact path="/cart" element={<Cart/>}/>
           <Route exact path="/catalog/:id" element={<ItemPage/>}/>
+          <Route exact path="/cart" element={<Cart/>}/>
+          <Route exact path="/cart/submit" element={<CartForm/>}/>
+          <Route exact path="/cart/submit/success" element={<SuccessPage/>}/>
         </Routes>
       </Wrapper>
     </Router>

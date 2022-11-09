@@ -8,6 +8,8 @@ import PageContainer from "../PageContainer.styled.js";
 import CardWrapper from "./CardWrapper/CardWrapper";
 import Loader from "../../components/Loader/Loader.styled";
 import {getAllItems, getItemsFiltered} from "../../api/items_api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const { Option } = Select;
 const { Search } = Input;
@@ -32,10 +34,10 @@ const Catalog = () => {
   const applyFilters = () => {
     const filters = {};
     if (minPrice > maxPrice && maxPrice !== null) {
-      alert("Minimum price can`t be bigger than maximum price");
+      toast("Minimum price can`t be bigger than maximum price");
     }
     else if (minPrice < 0 || maxPrice < 0) {
-      alert("Prices can`t be negative, though it would be a great idea☺");
+      toast("Prices can`t be negative, though it would be a great idea☺");
     }
     else {
       setIsLoading(true);
@@ -74,6 +76,18 @@ const Catalog = () => {
 
   return (
     <PageContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Essentials>
         <FilterWrapper>
           <span>Choose filters:</span>

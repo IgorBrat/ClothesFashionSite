@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CardTile from "../../components/CardTile/CardTile";
 import ButtonWrapper from "../../components/ButtonWrapper/ButtonWrapper.styled";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -17,8 +19,29 @@ const Cart = () => {
     totalPrice += foundItem.content.price * foundItem.count;
   }
 
+  const checkCart = () => {
+    if (items.length === 0) {
+      toast("Your cart is empty");
+    }
+    else {
+        navigate(`/cart/submit`);
+    }
+  }
+
   return (
     <PageContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {items.map(({ content, count }) => (
         <CardTile
           id={content.id}
@@ -29,12 +52,12 @@ const Cart = () => {
           key={content.id}
         />
       ))}
-      <h1>Total price: {totalPrice}$</h1>
-      <ButtonWrapper>
-        <SecondaryButton onClick={() => navigate(`/catalog`)}>
-          Go to catalog
-        </SecondaryButton>
-        <PrimaryButton>Confirm</PrimaryButton>
+      <h1>{totalPrice>0 ? `Total price: ${totalPrice}$` : `Your cart is empty, go to Catalog.`}</h1>
+        <ButtonWrapper>
+          <SecondaryButton onClick={() => navigate(`/catalog`)}>
+            Go to catalog
+          </SecondaryButton>
+          <PrimaryButton onClick={() => checkCart()}>Confirm</PrimaryButton>
       </ButtonWrapper>
     </PageContainer>
   )
