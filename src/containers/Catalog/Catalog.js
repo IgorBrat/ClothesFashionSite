@@ -40,15 +40,12 @@ const Catalog = () => {
     else {
       setIsLoading(true);
       if (filterBrand !== null){
-        console.log(1);
         filters.filterBrand = filterBrand;
       };
       if (minPrice !== null){
-        console.log(2);
         filters.minPrice = minPrice;
       };
       if (maxPrice !== null){
-        console.log(3);
         filters.maxPrice = maxPrice;
       };
       getItemsFiltered(filters).then((response) => {
